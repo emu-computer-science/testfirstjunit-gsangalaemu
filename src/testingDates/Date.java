@@ -257,4 +257,9 @@ public class Date
         Date tester = new Date();
         System.out.println("tester is "+tester);
     }
+    
+    public static Date addOneDay(Date otherDate){
+    	   System.out.println("Date.addOneDay() is not yet implemented.");
+    	   return otherDate;
+    	}
 }
