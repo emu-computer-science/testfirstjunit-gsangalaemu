@@ -36,7 +36,7 @@ public class DateSetDateTest {
 	public void testIllegalValueJan() {
 		Date illegalValueJan = new Date(1, 32, 2025);
 		Date dateIllegalValueTest = new Date();
-		dateIllegalValueTest.setDate(1, 32, 2025);\
+		dateIllegalValueTest.setDate(1, 32, 2025);
 		// Check to see if the date was changed to our test value
 		// Assert false, as expected behaviour is the date was not
 		// changed and the values are not equal
