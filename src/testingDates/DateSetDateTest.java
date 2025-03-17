@@ -49,7 +49,7 @@ public class DateSetDateTest {
 		Date dateIllegalValueTest = new Date();
 		dateIllegalValueTest.setDate("February", 30, 2026);
 		// Check to see if the date was changed to our test value
-		// Assert false, as expected behaviour is the date was not
+		// Assert false, as expected behaviour is the date was notJanuary
 		// changed and the values are not equal
 		assertFalse(illegalValueFeb.equals(dateIllegalValueTest));	
 	}

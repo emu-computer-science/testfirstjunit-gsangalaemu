@@ -166,8 +166,8 @@ public class Date
     }
 
     public boolean precedes(Date otherDate)
-    {
-        return ( (year < otherDate.year) ||
+    {	
+    	return ( (year < otherDate.year) ||
            (year == otherDate.year && getMonth( ) < otherDate.getMonth( )) ||
            (year == otherDate.year && month.equals(otherDate.month)
                                          && day < otherDate.day) );
@@ -201,16 +201,49 @@ public class Date
                  (yearInt >= 1000) && (yearInt <= 9999) );
     }
 
-    private boolean dateOK(String monthString, int dayInt, int yearInt)
-	// Arrays to hold the integer value of months
-	// with 30 and 31 days
-	int monthsWith30Days[] = {4, 6, 9, 11};
-	int monthsWith31Days[] = {1, 3, 5, 7, 8, 10, 12};
-    
+    private boolean dateOK(String monthString, int dayInt, int yearInt)    
     {
-        return ( monthOK(monthString) &&
-                 (dayInt >= 1) && (dayInt <= 31) &&
-                 (yearInt >= 1000) && (yearInt <= 9999) );
+    	
+    	// Arrays to hold the integer value of months
+    	// with 30 and 31 days
+        String monthsWith30Days[] = {"April", "June", "September", "November"};
+        String monthsWith31Days[] = {"January", "March", "May", "July", "August", "October", "December"};
+
+        // Check if the month string name is valid
+        if (!monthOK(monthString)) {
+        	return false;
+        }
+        
+        // Check if the day is in the range of 1-31
+        if (dayInt < 1 || dayInt > 31) {
+        	return false;
+        }
+        
+     // Check if valid day for months with 30 days
+        for (String s : monthsWith30Days) {
+        	if (s.equals(monthString) && day > 30) {
+        		return false;
+        	}
+        }
+        
+        // Check if valid day for months with 31 days
+        for (String s : monthsWith31Days) {
+        	if (s.equals(monthString) && day > 31) {
+        		return false;
+        	}
+        }
+        
+        // Check if valid day for February
+        if (monthString.equals("February") && dayInt > 28) {
+        	return false;
+        }
+        
+        // Check if within a valid year range
+        if (yearInt < 1000 || yearInt > 9999) {
+        	return false;
+        }
+        
+        return true;
     }
 
     private boolean monthOK(String month)
