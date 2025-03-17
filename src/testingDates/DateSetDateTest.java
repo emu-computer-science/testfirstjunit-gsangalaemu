@@ -34,35 +34,38 @@ public class DateSetDateTest {
 	
 	@Test
 	public void testIllegalValueJan() {
-		Date illegalValueJan = new Date(1, 32, 2025);
-		Date dateIllegalValueTest = new Date();
-		dateIllegalValueTest.setDate("January", 32, 2025);
-		// Check to see if the date was changed to our test value
-		// Assert false, as expected behaviour is the date was not
-		// changed and the values are not equal
-		assertFalse(illegalValueJan.equals(dateIllegalValueTest));	
+	    // Create a new Date object with default/valid values
+	    Date dateIllegalValueTest = new Date();
+	    dateIllegalValueTest.setDate((String) "January", 32, 2025);      
+	    // Check to see if the date was changed to our test value
+	    // Assert false, as expected behaviour is the date was not changed and the values are not equal
+	    assertFalse(dateIllegalValueTest.getMonth() == 1 &&
+	                dateIllegalValueTest.getDay() == 32 &&
+	                dateIllegalValueTest.getYear() == 2025);
 	}
-	
+
 	@Test
 	public void testIllegalValueFeb() {
-		Date illegalValueFeb = new Date(2, 30, 2026);
-		Date dateIllegalValueTest = new Date();
-		dateIllegalValueTest.setDate("February", 30, 2026);
-		// Check to see if the date was changed to our test value
-		// Assert false, as expected behaviour is the date was notJanuary
-		// changed and the values are not equal
-		assertFalse(illegalValueFeb.equals(dateIllegalValueTest));	
+	    // Create a new Date object with default/valid values
+	    Date dateIllegalValueTest = new Date();
+	    dateIllegalValueTest.setDate((String) "February", 30, 2026);     
+	    // Check to see if the date was changed to our test value
+	    // Assert false, as expected behaviour is the date was not changed and the values are not equal
+	    assertFalse(dateIllegalValueTest.getMonth() == 2 &&
+	                dateIllegalValueTest.getDay() == 30 &&
+	                dateIllegalValueTest.getYear() == 2026);
 	}
 	
 	@Test
 	public void testIllegalValueApr() {
-		Date illegalValueApr = new Date(4, 31, 2492);
-		Date dateIllegalValueTest = new Date();
-		dateIllegalValueTest.setDate("April", 31, 2492);
-		// Check to see if the date was changed to our test value
-		// Assert false, as expected behaviour is the date was not
-		// changed and the values are not equal
-		assertFalse(illegalValueApr.equals(dateIllegalValueTest));	
+	    // Create a new Date object with default/valid values
+	    Date dateIllegalValueTest = new Date(1, 1, 2000);
+	    dateIllegalValueTest.setDate((String) "April", 31, 2492);    
+	    // Check to see if the date was changed to our test value
+	    // Assert false, as expected behaviour is the date was not changed and the values are not equal
+	    assertFalse(dateIllegalValueTest.getMonth() == 4 &&
+	                dateIllegalValueTest.getDay() == 31 &&
+	                dateIllegalValueTest.getYear() == 2492);
 	}
 	
 }

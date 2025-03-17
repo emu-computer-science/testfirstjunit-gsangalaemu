@@ -16,7 +16,7 @@ public class DateAddDaysTest {
 	public void testDaySameMonthJan() {
 		Date sameMonthJan = new Date(1, 3, 2019);
 		Date sameMonthJanExpectedNew = new Date(1, 4, 2019);
-		Date.addOneDay(sameMonthJan);
+		sameMonthJan.addOneDay();
 		assertTrue(sameMonthJan.equals(sameMonthJanExpectedNew));		
 	};
 	
@@ -24,7 +24,7 @@ public class DateAddDaysTest {
 	public void testDaySameMonthFeb() {
 		Date sameMonthFeb = new Date(2, 20, 2024);
 		Date sameMonthFebExpectedNew = new Date(2, 21, 2024);
-		Date.addOneDay(sameMonthFeb);
+		sameMonthFeb.addOneDay();
 		assertTrue(sameMonthFeb.equals(sameMonthFebExpectedNew));		
 	};
 	
@@ -32,7 +32,7 @@ public class DateAddDaysTest {
 	public void testDaySameMonthOct() {
 		Date sameMonthOct = new Date(10, 30, 2025);
 		Date sameMonthOctExpectedNew = new Date(10, 31, 2025);
-		Date.addOneDay(sameMonthOct);
+		sameMonthOct.addOneDay();
 		assertTrue(sameMonthOct.equals(sameMonthOctExpectedNew));		
 	};
 	
@@ -42,7 +42,7 @@ public class DateAddDaysTest {
 	public void testDayAcrossMonthAprilMay() {
 		Date acrossAprilMay = new Date(4, 30, 2025);
 		Date acrossAprilMayExpectedNew = new Date(5, 1, 2025);
-		Date.addOneDay(acrossAprilMay);
+		acrossAprilMay.addOneDay();
 		assertTrue(acrossAprilMay.equals(acrossAprilMayExpectedNew));		
 	};
 	
@@ -50,7 +50,7 @@ public class DateAddDaysTest {
 	public void testDayAcrossMonthOctNov() {
 		Date acrossMonthOctNov = new Date(10, 31, 2025);
 		Date acrossMonthOctNovExpectedNew = new Date(11, 1, 2025);
-		Date.addOneDay(acrossMonthOctNov);
+		acrossMonthOctNov.addOneDay();
 		assertTrue(acrossMonthOctNov.equals(acrossMonthOctNovExpectedNew));		
 	};
 	
@@ -60,8 +60,7 @@ public class DateAddDaysTest {
 	public void testDayAcrossYear() {
 		Date acrossMonthYear = new Date(12, 31, 2025);
 		Date acrossMonthYearExpectedNew = new Date(1, 1, 2026);
-		Date.addOneDay(acrossMonthYear);
+		acrossMonthYear.addOneDay();
 		assertTrue(acrossMonthYear.equals(acrossMonthYearExpectedNew));		
-	};
-
+	};	
 }

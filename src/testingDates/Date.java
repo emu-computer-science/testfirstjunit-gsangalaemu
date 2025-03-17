@@ -44,7 +44,7 @@ public class Date
     }
 
     public void setDate(int monthInt, int day, int year)
-    {
+    {    	
         if (dateOK(monthInt, day, year))
         {
             this.month = monthString(monthInt);
@@ -68,8 +68,8 @@ public class Date
         }
         else
         {
-            System.out.println("Fatal Error in setDate(String,int, int)");
-            System.exit(0);
+            System.out.println("Fatal Error in setDate(int, int, int)");
+            System.exit(0);          
         }
     }
 
@@ -221,14 +221,14 @@ public class Date
         
      // Check if valid day for months with 30 days
         for (String s : monthsWith30Days) {
-        	if (s.equals(monthString) && day > 30) {
+        	if (s.equals(monthString) && dayInt > 30) {
         		return false;
         	}
         }
         
         // Check if valid day for months with 31 days
         for (String s : monthsWith31Days) {
-        	if (s.equals(monthString) && day > 31) {
+        	if (s.equals(monthString) && dayInt > 31) {
         		return false;
         	}
         }
@@ -296,25 +296,26 @@ public class Date
         System.out.println("tester is "+tester);
     }
     
-    public static Date addOneDay(Date otherDate){
+    public Date addOneDay(){
     	
     	// Arrays to hold the integer value of months
     	// with 30 and 31 days
-    	int monthsWith30Days[] = {4, 6, 9, 11};
-    	int monthsWith31Days[] = {1, 3, 5, 7, 8, 10, 12};
+    	String monthsWith30Days[] = {"April", "June", "September", "November"};
+        String monthsWith31Days[] = {"January", "March", "May", "July", "August", "October", "December"};
+
     	// Boolean value if we need to increase the month,
     	// ie: If the addOneDay method is called when it is
     	// the last day of the month
     	boolean increaseMonth = false;
     	    	
-    	int currentDay = otherDate.getDay();
-    	int currentMonth = otherDate.getMonth();
-    	int currentYear = otherDate.getYear();  	
+    	int currentDay = this.day;
+    	String currentMonth = this.month;
+    	int currentYear = this.year;  	
     	    	
     	// Check if it is the last day of a 30 day month
     	if (currentDay == 30) {
-    		for (int i : monthsWith30Days) {
-    			if (i == currentMonth) {
+    		for (String s : monthsWith30Days) {
+    			if (s.equals(currentMonth)) {
     				increaseMonth = true;
     			}
     		}
@@ -322,15 +323,15 @@ public class Date
     	
     	// Check if it is the last day of a 31 day month
       	if (currentDay == 31) {
-    		for (int i : monthsWith31Days) {
-    			if (i == currentMonth) {
+    		for (String s : monthsWith31Days) {
+    			if (s.equals(currentMonth)) {
     				increaseMonth = true;
     			}
     		}
     	}
       	
       	// Check if it is the last day of February
-      	if (currentDay == 28 && currentMonth == 2) {
+      	if (currentDay == 28 && currentMonth.equals("February")) {
       		increaseMonth = true;
       	}
       	
@@ -338,28 +339,28 @@ public class Date
       	// increase the day
       	if (increaseMonth == false) {
       		currentDay++;
-      		otherDate.setDate(currentMonth, currentDay, currentYear);
+      		this.setDate(currentMonth, currentDay, currentYear);
       		
       	}
       	
       	// If it is not December and we do need to increase
       	// the month then increment to the next month and set
-      	// the day value to the first day of the month 
-      	if (increaseMonth == true && currentMonth != 12) { 
-      		currentMonth++;
-      		otherDate.setDate(currentMonth, 1, currentYear);
+      	// the day value to the first day of the month
+      	int currentMonthAsInt = getMonth();
+      	if (increaseMonth == true && currentMonthAsInt != 12) { 
+      		this.setDate(currentMonthAsInt + 1, 1, currentYear);
       	}
       	
       	// If it is December increment the year value and
       	// set the day value to the first of the month and
       	// the month value to January
-      	if (increaseMonth == true && currentMonth == 12) {
+      	if (increaseMonth == true && currentMonth.equals("December")) {
       		currentYear++; // Increment the year by one
-      		otherDate.setDate(1, 1, currentYear);
+      		this.setDate(1, 1, currentYear);
       	}
     	
       	// Return the modified date
-    	return otherDate;    	
+    	return this;    	
     	
     	}
 }
