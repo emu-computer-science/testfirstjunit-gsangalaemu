@@ -64,5 +64,20 @@ public class DateAddDaysTest {
 		assertTrue(acrossMonthYear.equals(acrossMonthYearExpectedNew));		
 	};
 	
+	@Test
+	public void stayInSameMonth() {
+			
+		Date startDate = new Date("June", 10, 2019);
+		startDate.addOneDay();
+		assertEquals(new Date("June", 11, 2019), startDate);
+	}
+
+	@Test
+	public void stayInSameMonth2() {
+			
+		Date startDate = new Date("June", 10, 2019);
+		assertEquals("Did not return correct value", new Date("June", 11, 2019), startDate.addOneDay());
+	}
+	
 
 }
