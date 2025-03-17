@@ -58,18 +58,18 @@ public class Date
         }
     }
 
-    public void setDate(String monthString, int day, int year)
+    public Object setDate(String monthString, int day, int year)
     {
         if (dateOK(monthString, day, year))
         {
             this.month = monthString;
             this.day = day;
             this.year = year;
+            return this;
         }
         else
-        {
-            System.out.println("Fatal Error in setDate(int, int, int)");
-            System.exit(0);          
+        {            
+            return null;          
         }
     }
 
