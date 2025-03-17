@@ -8,7 +8,7 @@ public class DateSetDateTest {
 	
 	@Test
 	public void testLegalValueJan() {
-		Date legalValueJan = new Date("January", 3, 2019);
+		Date legalValueJan = new Date(1, 3, 2019);
 		Date dateLegalValueTest = new Date();
 		dateLegalValueTest.setDate("January", 3, 2019);
 		assertTrue(legalValueJan.equals(dateLegalValueTest));	
@@ -16,7 +16,7 @@ public class DateSetDateTest {
 	
 	@Test
 	public void testLegalValueMar() {
-		Date legalValueMar = new Date("March", 15, 2024);
+		Date legalValueMar = new Date(3, 15, 2024);
 		Date dateLegalValueTest = new Date();
 		dateLegalValueTest.setDate("March", 15, 2024);
 		assertTrue(legalValueMar.equals(dateLegalValueTest));	
@@ -24,7 +24,7 @@ public class DateSetDateTest {
 	
 	@Test
 	public void testLegalValueJun() {
-		Date legalValueJun = new Date("June", 20, 2435);
+		Date legalValueJun = new Date(6, 20, 2435);
 		Date dateLegalValueTest = new Date();
 		dateLegalValueTest.setDate("June", 20, 2435);
 		assertTrue(legalValueJun.equals(dateLegalValueTest));	
@@ -34,7 +34,7 @@ public class DateSetDateTest {
 	
 	@Test
 	public void testIllegalValueJan() {
-		Date illegalValueJan = new Date("January", 32, 2025);
+		Date illegalValueJan = new Date(1, 32, 2025);
 		Date dateIllegalValueTest = new Date();
 		dateIllegalValueTest.setDate("January", 32, 2025);
 		// Check to see if the date was changed to our test value
@@ -45,7 +45,7 @@ public class DateSetDateTest {
 	
 	@Test
 	public void testIllegalValueFeb() {
-		Date illegalValueFeb = new Date("February", 30, 2026);
+		Date illegalValueFeb = new Date(2, 30, 2026);
 		Date dateIllegalValueTest = new Date();
 		dateIllegalValueTest.setDate("February", 30, 2026);
 		// Check to see if the date was changed to our test value
@@ -56,7 +56,7 @@ public class DateSetDateTest {
 	
 	@Test
 	public void testIllegalValueApr() {
-		Date illegalValueApr = new Date("April", 31, 2492);
+		Date illegalValueApr = new Date(4, 31, 2492);
 		Date dateIllegalValueTest = new Date();
 		dateIllegalValueTest.setDate("April", 31, 2492);
 		// Check to see if the date was changed to our test value
