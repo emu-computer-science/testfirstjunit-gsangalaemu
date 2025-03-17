@@ -202,6 +202,11 @@ public class Date
     }
 
     private boolean dateOK(String monthString, int dayInt, int yearInt)
+	// Arrays to hold the integer value of months
+	// with 30 and 31 days
+	int monthsWith30Days[] = {4, 6, 9, 11};
+	int monthsWith31Days[] = {1, 3, 5, 7, 8, 10, 12};
+    
     {
         return ( monthOK(monthString) &&
                  (dayInt >= 1) && (dayInt <= 31) &&
