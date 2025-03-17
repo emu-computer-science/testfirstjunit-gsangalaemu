@@ -3,6 +3,8 @@ package testingDates;
 // which is "buildToTestLab", however step 3 says to name the
 // package "testingDates". I wasn't sure which I was supposed to
 // use, so I followed step 3
+// Step 7 hash: fefdb00
+
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -57,7 +59,7 @@ public class DateAddDaysTest {
 	@Test
 	public void testDayAcrossYear() {
 		Date acrossMonthYear = new Date(12, 31, 2025);
-		Date acrossMonthYearExpectedNew = new Date(1, 1, 202);
+		Date acrossMonthYearExpectedNew = new Date(1, 1, 2026);
 		Date.addOneDay(acrossMonthYear);
 		assertTrue(acrossMonthYear.equals(acrossMonthYearExpectedNew));		
 	};

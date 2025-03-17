@@ -259,7 +259,69 @@ public class Date
     }
     
     public static Date addOneDay(Date otherDate){
-    	   System.out.println("Date.addOneDay() is not yet implemented.");
-    	   return otherDate;
+    	
+    	// Arrays to hold the integer value of months
+    	// with 30 and 31 days
+    	int monthsWith30Days[] = {4, 6, 9, 11};
+    	int monthsWith31Days[] = {1, 3, 5, 7, 8, 10, 12};
+    	// Boolean value if we need to increase the month,
+    	// ie: If the addOneDay method is called when it is
+    	// the last day of the month
+    	boolean increaseMonth = false;
+    	    	
+    	int currentDay = otherDate.getDay();
+    	int currentMonth = otherDate.getMonth();
+    	int currentYear = otherDate.getYear();  	
+    	    	
+    	// Check if it is the last day of a 30 day month
+    	if (currentDay == 30) {
+    		for (int i : monthsWith30Days) {
+    			if (i == currentMonth) {
+    				increaseMonth = true;
+    			}
+    		}
+    	}
+    	
+    	// Check if it is the last day of a 31 day month
+      	if (currentDay == 31) {
+    		for (int i : monthsWith31Days) {
+    			if (i == currentMonth) {
+    				increaseMonth = true;
+    			}
+    		}
+    	}
+      	
+      	// Check if it is the last day of February
+      	if (currentDay == 28 && currentMonth == 2) {
+      		increaseMonth = true;
+      	}
+      	
+      	// If we do not need to increase the month, simply
+      	// increase the day
+      	if (increaseMonth == false) {
+      		currentDay++;
+      		otherDate.setDate(currentMonth, currentDay, currentYear);
+      		
+      	}
+      	
+      	// If it is not December and we do need to increase
+      	// the month then increment to the next month and set
+      	// the day value to the first day of the month 
+      	if (increaseMonth == true && currentMonth != 12) { 
+      		currentMonth++;
+      		otherDate.setDate(currentMonth, 1, currentYear);
+      	}
+      	
+      	// If it is December increment the year value and
+      	// set the day value to the first of the month and
+      	// the month value to January
+      	if (increaseMonth == true && currentMonth == 12) {
+      		currentYear++; // Increment the year by one
+      		otherDate.setDate(1, 1, currentYear);
+      	}
+    	
+      	// Return the modified date
+    	return otherDate;    	
+    	
     	}
 }
